@@ -1,0 +1,46 @@
+function addNumber(number) {
+    var
+        calcInput = document.getElementById('calc-input');
+        symbol    = number;
+
+    calcInput.value    += symbol;
+}
+
+function calculate() {
+    var
+        string                         = String(document.getElementById('calc-input').value); // string with math symbols and numbers
+        string                         = string.replace('^', '**');
+    console.log(string);
+    if (string) {
+        try {
+            finalValue                         = eval(string);
+            document.getElementById('calc-input').value = finalValue;
+        } catch (e) {
+            document.getElementById('calc-input').value = '';
+        }
+    } else {
+        document.getElementById('calc-input').value = '';
+    }
+}
+
+function funcC() {
+    var
+        text       = document.getElementById('calc-input').value,
+        finalValue = '',
+        onceSymbol = '';
+    for (var i = 0; i < text.length; i++) {
+        onceSymbol = text[i];
+        if (i != (text.length-1)) {
+            finalValue += onceSymbol;
+        } else {
+            console.log(typeof(null));
+        }
+    }
+    document.getElementById('calc-input').value = finalValue;
+}
+
+function funcCE() {
+    var
+        text = document.getElementById('calc-input');
+    text.value = '';
+}
